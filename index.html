@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <style>
+        *{
+            background-color: #708090;        
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Hello </h1>
+    <div id="root"></div>
+</body>
+<!-- USING JS -->
+<!-- <script>
+    const heading = document.createElement('h1');
+    heading.innerHTML = "Hello World from JS";
+    const root = document.querySelector('#root');
+    root.appendChild(heading);
+</script> -->
+
+<!-- USING REACT -->
+<!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+<script type="module" src="./App.js"></script>
+</html>
+
+<!-- React is a library = as it can only be used in a small part of code. 
+Here, react is only injected in dic with id -> root. [root.render] -->

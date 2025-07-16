@@ -1,0 +1,26 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "My React Project",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Ashish Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashishh24/React/issues"
+  },
+  "homepage": "https://github.com/Ashishh24/React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
