@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer"
 
 const Body = () => {
     const [resNewCard, setResNewCard] = useState([]);
+    const [searchText, setSearchText] = useState("");
+    const [filterCard, setFilterCard] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -16,31 +18,38 @@ const Body = () => {
         const dataJson = await data.json();
 
         setResNewCard(dataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilterCard(dataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
-    if(resNewCard.length === 0){
+    if(resNewCard?.length === 0){
         return (<Shimmer />)
     }
     return (
         <div className="body">
             <div className="body-div">          
-                <form action="/search" method="GET" className="search-bar">
-                    <input type="search" name="q" placeholder="Search..." />
-                    <button type="submit">Search</button>
-                </form>
+                <div className="search-bar">
+                    <input type="search" name="q" placeholder="Search..." autoComplete="off" value={searchText} onChange={(e) => {
+                        setSearchText(e.target.value);
+                    }}/>
+                    <button type="submit" onClick={(e) => {
+                        const newList = resNewCard.filter((res) => {
+                            const name = res?.info?.name.toLowerCase();
+                            return name.includes(searchText.toLowerCase());
+                        })
+                        console.log(newList);
+                        setFilterCard(newList);
+                        setSearchText("");    
+                    }}>Search</button>
+                </div>
                 <button id="filter" onClick={() => {
-                    const newList = resNewCard.filter((res) => {
-                        return res.avgRating > 4.5;
+                    const newList = resNewCard.filter((res) => {                        
+                        return res?.info?.avgRating > 4.2;
                     })
                     setResNewCard(newList);
-                    console.log(resNewCard);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="resMain">
-                {resNewCard.map((restaurant) => {
-                    console.log(restaurant);
-                    console.log(restaurant?.info?.id);
-                    console.log(restaurant?.info);
+                {filterCard?.map((restaurant) => {
                     return <ResCard key={restaurant?.info?.id} resData={restaurant?.info}/>
                 })}
             </div>
