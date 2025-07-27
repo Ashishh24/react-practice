@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import {resList} from "../utils/data";
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer"
 
@@ -24,6 +23,7 @@ const Body = () => {
     if(resNewCard?.length === 0){
         return (<Shimmer />)
     }
+    
     return (
         <div className="body">
             <div className="body-div">          

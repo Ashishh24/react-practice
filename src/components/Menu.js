@@ -37,7 +37,7 @@ const Menu = () => {
     return (
         <div className="menu">
             <h1 className="brandname">{name}</h1>
-            <h2>{cuisines} - {costForTwoMessage}</h2>
+            <h2>{cuisines.join(", ")} - {costForTwoMessage}</h2>
             <h2 className="menu-title">Menu:</h2>
             <div className="menu-card">
                 {itemCards?.map((item) => {
