@@ -1,4 +1,6 @@
 *{
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
     margin: 0;
     padding: 0;
 }
@@ -139,4 +141,64 @@
 .login {
     padding: 0 10px;
     cursor: pointer;
+}
+
+.about-div {
+    margin: 10px;    
+}
+
+.menu {
+    width: 90%;
+    border: 1px solid black;
+    align-items: center;
+    margin: 10px auto;
+    padding: 5px;
+    max-height: 100%; /* Adjust as needed */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.brandname {
+    text-align: center;
+}
+
+.user-card {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.menu > h1 {
+    padding: 10px;
+}
+
+.menu > h2 {
+    padding: 10px;
+}
+
+.menu-card {
+    margin-top: 20px;
+    width: 100%;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+.menu-cards {
+    
+    width: 90%;
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px ;
+    /* max-height: 100px; */
+}
+
+.menu-cards:hover {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-pic {
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }

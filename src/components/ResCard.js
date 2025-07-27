@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {resLogo} from "../utils/links";
 
 const ResCard = (props) => {    
@@ -11,7 +12,7 @@ const ResCard = (props) => {
     return (
         <div className="res-cards">
             <img className="res-logo" src={resLogo+cloudinaryImageId}/>            
-            <h3>{name}</h3><br/>
+            <Link to={"/restaurant/"+resData.id}><h3>{name}</h3><br/></Link>
             <div className="rating-time">
                 <p className="resRating">⭐{avgRating}</p>
                 <p> | </p>
