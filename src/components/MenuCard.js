@@ -10,13 +10,13 @@ const MenuCard = (props) => {
     const isVegg = isVeg ? "Vegeterain" : "Non-Vegeterain";
     return (
         <div>
-            <div className="menu-cards">
+            <div className="w-[90%] flex justify-between p-2.5 hover:border hover:border-solid hover:border:[#ccc] hover:shadow-[#f0f0f0]">
                 <div className="item-desc">
                     <h3>{name}</h3><br/>
                     <h4>₹{defaultPrice/100}</h4><br />
                     <h4>{isVegg}</h4>
                 </div>
-                <img className="item-pic" src={itemPic+imageId}/>            
+                <img className="item-pic max-h-30 w-auto object-contain block" src={itemPic+imageId}/>            
             </div>
         </div>
     )

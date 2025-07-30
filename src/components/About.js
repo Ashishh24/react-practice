@@ -11,7 +11,7 @@ const About = () => {
     };
 
     return (
-        <div className="about-div">
+        <div className="about-div m-2.5">
             <h1>This is About page.</h1>
             <h2>Members: </h2>
             <User />

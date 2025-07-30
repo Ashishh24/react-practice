@@ -42,7 +42,7 @@
 .body-div {
     display: flex;
     justify-content: space-between;
-    margin: 0 200px;
+    margin: 0 20px;
     padding-bottom: 20px;
 }
 
@@ -147,6 +147,11 @@
     margin: 10px;    
 }
 
+.user-card {
+    padding: 10px;
+    border: 1px solid black;
+}
+
 .menu {
     width: 90%;
     border: 1px solid black;
@@ -162,11 +167,6 @@
     text-align: center;
 }
 
-.user-card {
-    padding: 10px;
-    border: 1px solid black;
-}
-
 .menu > h1 {
     padding: 10px;
 }
@@ -178,17 +178,14 @@
 .menu-card {
     margin-top: 20px;
     width: 100%;
-    /* border: 1px solid black; */
     padding: 10px;
 }
 
-.menu-cards {
-    
+.menu-cards {    
     width: 90%;
     display: flex;
     justify-content: space-between; 
     padding: 10px ;
-    /* max-height: 100px; */
 }
 
 .menu-cards:hover {

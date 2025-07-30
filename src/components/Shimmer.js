@@ -7,11 +7,11 @@ const Shimmer = () => {
                     <button type="submit">Search</button>
                 </form>
             </div>
-            <div className="resMain">
-                <div className="shimmer-cards"></div>
-                <div className="shimmer-cards"></div>
-                <div className="shimmer-cards"></div>
-                <div className="shimmer-cards"></div>
+            <div className="resMain grid grid-cols-4 justify-center overflow-y-auto p-6.25">
+                <div className="shimmer-cards w-62.5 h-75 bg-[#f0f0f0]"></div>
+                <div className="shimmer-cards w-62.5 h-75 bg-[#f0f0f0]"></div>
+                <div className="shimmer-cards w-62.5 h-75 bg-[#f0f0f0]"></div>
+                <div className="shimmer-cards w-62.5 h-75 bg-[#f0f0f0]"></div>
             </div>
         </div>
     )

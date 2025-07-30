@@ -10,16 +10,16 @@ const ResCard = (props) => {
     
     const {cloudinaryImageId, name, avgRating, areaName} = resData;
     return (
-        <div className="res-cards">
-            <img className="res-logo" src={resLogo+cloudinaryImageId}/>            
-            <Link to={"/restaurant/"+resData.id}><h3>{name}</h3><br/></Link>
-            <div className="rating-time">
+        <Link to={"/restaurant/"+resData.id}><div className="p-3 m-1.25 w-90 flex-shrink-0 hover:border hover:border-solid hover:border-[#ccc] hover:cursor-pointer hover:shadow-gray-400">
+            <img className="res-logo w-[100%]" src={resLogo+cloudinaryImageId}/>            
+            <h3>{name}</h3><br/>
+            <div className="flex items-center">
                 <p className="resRating">⭐{avgRating}</p>
                 <p> | </p>
-                <p className="deliveryTime">{deliveryTime}</p>
+                <p className="deliveryTime my-auto">{deliveryTime}</p>
             </div><br/>
             <p className="resAddress">{areaName}</p>
-        </div>
+        </div></Link>
     )
 }
 
