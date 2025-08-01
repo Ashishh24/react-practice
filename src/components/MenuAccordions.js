@@ -1,13 +1,11 @@
 import {useState}  from "react";
 import Dropdown from "./Dropdown";
-import Nothing from "./Nothing";
 
 const MenuAccordions = (props) => {
     const {indexx, title, itemCards} = props;
     
     console.log(itemCards);
     const [isOpen, setIsOpen] = useState(false);
-    // const [index, setIndex] = useState(0);
     return (
         <div className="my-5 border-solid">
             <div className="p-3 rounded-md shadow-lg bg-gray-100">
@@ -18,7 +16,6 @@ const MenuAccordions = (props) => {
                     </div>
                 </div>
                 <div>
-                    {/* <Dropdown key={indexx} itemCards={itemCards}/> */}
                     {isOpen && <Dropdown key={indexx} itemCards={itemCards}/>}
                 </div>
             </div>

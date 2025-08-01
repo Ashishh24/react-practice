@@ -3,7 +3,7 @@ import { itemPic, veg, nonVeg } from "../utils/links";
 const MenuCard = (props) => {
     const {itemData} = props;
 
-    if (!itemData) return null; // Safely skip rendering if data is missing
+    if (!itemData) return null;
 
     const {imageId, name, isVeg, defaultPrice, description, ratings} = itemData;
 

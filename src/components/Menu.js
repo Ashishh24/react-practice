@@ -24,9 +24,7 @@ const Menu = () => {
             <Shimmer/>
         )
     }
-
-    // console.log(resInfo);
-
+    
     const {name, cuisines, costForTwoMessage, cloudinaryImageId} = resInfo?.cards[2]?.card?.card?.info;
 
     const section = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
