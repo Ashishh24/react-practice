@@ -1,22 +1,29 @@
-import { itemPic } from "../utils/links";
+import { itemPic, veg, nonVeg } from "../utils/links";
 
 const MenuCard = (props) => {
     const {itemData} = props;
 
     if (!itemData) return null; // Safely skip rendering if data is missing
 
-    const {imageId, name, isVeg, defaultPrice} = itemData;
+    const {imageId, name, isVeg, defaultPrice, description, ratings} = itemData;
 
-    const isVegg = isVeg ? "Vegeterain" : "Non-Vegeterain";
     return (
         <div>
-            <div className="w-[90%] flex justify-between p-2.5 hover:border hover:border-solid hover:border:[#ccc] hover:shadow-[#f0f0f0]">
-                <div className="item-desc">
-                    <h3>{name}</h3><br/>
-                    <h4>₹{defaultPrice/100}</h4><br />
-                    <h4>{isVegg}</h4>
+            <div className="flex justify-between border-b-1 border-gray-400 my-7 px-2 py-4 hover:border-gray-500 hover:shadow-2xl">
+                <div className="flex flex-col w-10/12">
+                    <span>{isVeg ? <img className="max-h-5" src={veg} /> : <img className="max-h-5" src={nonVeg} />}</span>
+                    <span className="font-medium">{name}</span>
+                    <span className="font-light">₹{defaultPrice/100}</span>
+                    {ratings?.aggregatedRating?.rating 
+                        ? <span className="text-sm font-bold text-green-800">⭐{ratings?.aggregatedRating?.rating + " (" + ratings?.aggregatedRating?.ratingCountV2 +")"}</span> 
+                        : <p></p>
+                    }
+                    <span className="text-xs">{description}</span>
                 </div>
-                <img className="item-pic max-h-30 w-auto object-contain block" src={itemPic+imageId}/>            
+                <div className="w-2/12 py-2.5 flex flex-col items-center justify-center relative">
+                    <img className="max-h-40 py-2.5 rounded-2xl " src={itemPic+imageId}/>
+                    <button className="border font-bold bg-white text-green-700 absolute -bottom-1 hover:bg-green-700 hover:text-white px-8 py-1.5 rounded-2xl justify-center">ADD</button>
+                </div>
             </div>
         </div>
     )

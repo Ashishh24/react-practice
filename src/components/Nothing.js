@@ -1,0 +1,9 @@
+const Nothing = () => {
+    return(
+        <div>
+            <p>{" "}</p> 
+        </div>
+    )
+}
+
+export default Nothing;
