@@ -2,21 +2,24 @@ import {useState}  from "react";
 import Dropdown from "./Dropdown";
 
 const MenuAccordions = (props) => {
-    const {indexx, title, itemCards} = props;
+    const {title, itemCards, showItems, setShowIndex} = props;
     
-    console.log(itemCards);
-    const [isOpen, setIsOpen] = useState(false);
+    const index = 0
+    const handleClick = () => {
+        setShowIndex();
+    }
+
     return (
         <div className="my-5 border-solid">
             <div className="p-3 rounded-md shadow-lg bg-gray-100">
-                <div className="flex justify-between items-center cursor-pointer" onClick={()=>isOpen ? setIsOpen(false) : setIsOpen(true)}>
+                <div className="flex justify-between items-center cursor-pointer" onClick={handleClick}>
                     <p className="font-bold">{title+" ("+itemCards.length+")"}</p>
                     <div>
                         <p>🔽</p>
                     </div>
                 </div>
                 <div>
-                    {isOpen && <Dropdown key={indexx} itemCards={itemCards}/>}
+                    {showItems && <Dropdown key={index} itemCards={itemCards}/>}
                 </div>
             </div>
         </div>

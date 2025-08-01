@@ -5,6 +5,7 @@ import MenuAccordions from "./MenuAccordions";
 
 const Menu = () => {
     const [resInfo, setResInfo] = useState([]);
+    const [showIndex, setShowIndex] = useState(0);
     const {resID} = useParams();
 
     const fetchMenu = async () => {
@@ -24,7 +25,7 @@ const Menu = () => {
             <Shimmer/>
         )
     }
-    
+
     const {name, cuisines, costForTwoMessage, cloudinaryImageId} = resInfo?.cards[2]?.card?.card?.info;
 
     const section = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -32,12 +33,12 @@ const Menu = () => {
     );
 
     return (
-        <div className="w-[60%] my-2.5 mx-auto justify-center p-1.25 max-h-[100%] overflow-hidden box-border">
-            <h1 className="text-center p-2.5 font-extrabold text-2xl">{name}</h1>
-            <h2 className="p-2.5">{cuisines.join(", ")} - {costForTwoMessage}</h2>
+        <div className="w-[75%] my-2.5 mx-auto justify-center p-1.25 max-h-[100%] overflow-hidden box-border">
+            <h1 className="text-center font-extrabold text-4xl">{name}</h1>
+            <h2 className="text-center pt-7 pb-3 font-bold text-xl">{cuisines.join(", ")} - {costForTwoMessage}</h2>
             <div>
                 {section.map((sec, index) => {
-                    return <MenuAccordions key={sec?.card?.card?.categoryId} title={sec?.card?.card?.title} itemCards={sec?.card?.card?.itemCards}/>
+                    return <MenuAccordions key={sec?.card?.card?.categoryId} title={sec?.card?.card?.title} itemCards={sec?.card?.card?.itemCards} showItems={index === showIndex ? true : false} setShowIndex={()=>setShowIndex(index)} />
                 })}
             </div>
         </div>
