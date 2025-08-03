@@ -5,7 +5,7 @@ const MenuCard = (props) => {
 
     if (!itemData) return null;
 
-    const {imageId, name, isVeg, defaultPrice, description, ratings} = itemData;
+    const {imageId, name, isVeg, defaultPrice, description, price, ratings} = itemData;
 
     return (
         <div>
@@ -13,7 +13,7 @@ const MenuCard = (props) => {
                 <div className="flex flex-col w-10/12">
                     <span>{isVeg ? <img className="max-h-5" src={veg} /> : <img className="max-h-5" src={nonVeg} />}</span>
                     <span className="font-medium">{name}</span>
-                    <span className="font-light">₹{defaultPrice/100}</span>
+                    <span className="font-light">₹{defaultPrice ? defaultPrice/100 : price/100}</span>
                     {ratings?.aggregatedRating?.rating 
                         ? <span className="text-sm font-bold text-green-800">⭐{ratings?.aggregatedRating?.rating + " (" + ratings?.aggregatedRating?.ratingCountV2 +")"}</span> 
                         : <p></p>
