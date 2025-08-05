@@ -7,18 +7,23 @@ import About from "./components/About";
 import Contactus from "./components/Contactus";
 import Error from "./components/Error";
 import Menu from "./components/Menu";
+import Cart from "./components/Cart";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = () => {
     return (
-        <div>
-            <Header/>
-            <Outlet />
-            {/* <Footer /> */}
-        </div>
+        <Provider store={appStore}>
+            <div>
+                <Header/>
+                <Outlet />
+                {/* <Footer /> */}
+            </div>
+        </Provider>
     )
 }
 
@@ -46,7 +51,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:resID",
                 element: <Menu />
-            }
+            },
+            {
+                path: "/cart",
+                element: <Cart />
+            },
         ],
         errorElement: <Error />
     },

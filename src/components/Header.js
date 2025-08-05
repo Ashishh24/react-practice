@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { logo } from "../utils/links";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import { useSelector } from "react-redux";
 
 const Header = () => {
     // let btnName = "Login";
     const [btnName, setBtnName] = useState("Login");
-
     const onlineStatus = useOnlineStatus();
+
+    const cartItems = useSelector((store) => store.cart.items)
+    console.log(cartItems);
+    
     return(
         <div className="flex justify-between">
             <div className="logo">
@@ -21,7 +24,7 @@ const Header = () => {
                     <li className="px-4"><Link to="/about">About</Link></li>
                     <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                     <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-                    <li className="px-4">Cart</li>
+                    <li className="px-4"><Link to="/cart">Cart ({cartItems.length} Items) </Link></li>
                     <button className="px-5 cursor-pointer py-3 ml-10 border border-solid border-[#ccc] text-white bg-blue-500 rounded-md hover:bg-blue-600" onClick={() => {
                         btnName === "Login" ? setBtnName("Logout") : setBtnName("Login")
                     }

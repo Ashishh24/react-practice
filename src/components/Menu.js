@@ -5,7 +5,7 @@ import MenuAccordions from "./MenuAccordions";
 
 const Menu = () => {
     const [resInfo, setResInfo] = useState([]);
-    const [showIndex, setShowIndex] = useState(0);
+    const [showIndex, setShowIndex] = useState(null);
     const {resID} = useParams();
 
     const fetchMenu = async () => {
@@ -38,7 +38,7 @@ const Menu = () => {
             <h2 className="text-center pt-7 pb-3 font-bold text-xl">{cuisines.join(", ")} - {costForTwoMessage}</h2>
             <div>
                 {section.map((sec, index) => {
-                    return <MenuAccordions key={sec?.card?.card?.categoryId} title={sec?.card?.card?.title} itemCards={sec?.card?.card?.itemCards} showItems={index === showIndex ? true : false} setShowIndex={()=>setShowIndex(index)} />
+                    return <MenuAccordions key={sec?.card?.card?.categoryId} title={sec?.card?.card?.title} itemCards={sec?.card?.card?.itemCards} showItems={index === showIndex} setShowIndex={()=>setShowIndex(index === showIndex ? null : index)} />
                 })}
             </div>
         </div>

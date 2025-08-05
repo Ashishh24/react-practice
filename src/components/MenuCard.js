@@ -1,7 +1,14 @@
 import { itemPic, veg, nonVeg } from "../utils/links";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const MenuCard = (props) => {
     const {itemData} = props;
+    const dispatch = useDispatch();
+
+    const handleAddItem = (itemData) => {
+        dispatch(addItem(itemData));
+    }
 
     if (!itemData) return null;
 
@@ -22,7 +29,7 @@ const MenuCard = (props) => {
                 </div>
                 <div className="w-2/12 py-2.5 flex flex-col items-center justify-center relative">
                     <img className="max-h-40 py-2.5 rounded-2xl " src={itemPic+imageId}/>
-                    <button className="border font-bold bg-white text-green-700 absolute -bottom-1 hover:bg-green-700 hover:text-white px-8 py-1.5 rounded-2xl justify-center">ADD</button>
+                    <button className="border font-bold bg-white text-green-700 absolute -bottom-1 hover:bg-green-700 hover:text-white px-8 py-1.5 rounded-2xl justify-center" onClick={() => handleAddItem(itemData)}>ADD</button>
                 </div>
             </div>
         </div>
